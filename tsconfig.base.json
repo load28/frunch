@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@frunch/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@frunch/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@frunch/app-state": ["libs/app-state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

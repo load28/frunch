@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/app-state/src",
+  "prefix": "frunch",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/app-state"],
+      "options": {
+        "jestConfig": "libs/app-state/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/app-state/**/*.ts",
+          "libs/app-state/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
