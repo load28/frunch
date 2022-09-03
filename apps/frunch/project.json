@@ -1,0 +1,90 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/frunch/src",
+  "prefix": "frunch",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/frunch",
+        "index": "apps/frunch/src/index.html",
+        "main": "apps/frunch/src/main.ts",
+        "polyfills": "apps/frunch/src/polyfills.ts",
+        "tsConfig": "apps/frunch/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/frunch/src/favicon.ico", "apps/frunch/src/assets"],
+        "styles": ["apps/frunch/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/frunch/src/environments/environment.ts",
+              "with": "apps/frunch/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "frunch:build:production"
+        },
+        "development": {
+          "browserTarget": "frunch:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/frunch/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "frunch:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/frunch/**/*.ts", "apps/frunch/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/frunch"],
+      "options": {
+        "jestConfig": "apps/frunch/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
