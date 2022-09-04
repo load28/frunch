@@ -1,5 +1,5 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import * as AppStateActions from './app-state.actions';
 import { AppStateEntity } from './app-state.models';
@@ -17,10 +17,11 @@ export interface AppStatePartialState {
 }
 
 export const appStateAdapter: EntityAdapter<AppStateEntity> =
-  createEntityAdapter<AppStateEntity>({selectId: (entity: AppStateEntity) => entity.appId});
+  createEntityAdapter<AppStateEntity>({ selectId: (entity: AppStateEntity) => entity.appId });
+
 export const initialAppStateState: AppStateState =
   appStateAdapter.getInitialState({
-    loaded: false,
+    loaded: false
   });
 
 const reducer = createReducer(
@@ -28,17 +29,20 @@ const reducer = createReducer(
   on(AppStateActions.initAppState, (state) => ({
     ...state,
     loaded: false,
-    error: null,
+    error: null
   })),
   on(AppStateActions.loadAppStateIdSuccess, (state, { id }) => {
-    return {...state, selectedId: id};
+    return { ...state, selectedId: id };
+  }),
+  on(AppStateActions.loadAppStateIdFailure, (state, { error }) => {
+    return { ...state, error };
   }),
   on(AppStateActions.loadAppStateSuccess, (state, { appState }) =>
     appStateAdapter.setAll(appState, { ...state, loaded: true })
   ),
   on(AppStateActions.loadAppStateFailure, (state, { error }) => ({
     ...state,
-    error,
+    error
   }))
 );
 

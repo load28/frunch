@@ -13,4 +13,5 @@ export interface User {
 export interface AppStateEntity {
   appId: string;
   user: User;
+  platform: string;
 }

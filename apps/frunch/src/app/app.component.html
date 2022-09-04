@@ -1,1 +1,3 @@
-{{(appState$ | async)?.appId}}
+<ng-container *ngIf='(appState$ | async) as appState'>
+  {{appState.user.email}}
+</ng-container>

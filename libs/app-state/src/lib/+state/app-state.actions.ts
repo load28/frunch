@@ -11,6 +11,11 @@ export const loadAppStateIdSuccess = createAction(
   props<{ id: string }>()
 );
 
+export const loadAppStateIdFailure = createAction(
+  '[AppState] Load AppState id Failure',
+  props<{ error: any }>()
+);
+
 export const loadAppStateSuccess = createAction(
   '[AppState/API] Load AppState Success',
   props<{ appState: AppStateEntity[] }>()
