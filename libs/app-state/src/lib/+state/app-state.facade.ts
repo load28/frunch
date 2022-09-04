@@ -7,8 +7,7 @@ import * as AppStateSelectors from './app-state.selectors';
 @Injectable()
 export class AppStateFacade {
   /**
-   * Combine pieces of state using createSelector,
-   * and expose them as observables through the facade.
+   * App state 셀렉터
    */
   loaded$ = this.store.pipe(select(AppStateSelectors.getAppStateLoaded));
   allAppState$ = this.store.pipe(select(AppStateSelectors.getAllAppState));
@@ -18,8 +17,7 @@ export class AppStateFacade {
   }
 
   /**
-   * Use the initialization action to perform one
-   * or more tasks in your Effects.
+   * AppState 초기화 액션
    */
   init() {
     this.store.dispatch(AppStateActions.initAppState());

@@ -7,9 +7,9 @@ import { AppStateEntity } from './app-state.models';
 export const APP_STATE_FEATURE_KEY = 'app-state';
 
 export interface AppStateState extends EntityState<AppStateEntity> {
-  selectedId?: string; // which AppState record has been selected
-  loaded: boolean; // has the AppState list been loaded
-  error?: string | null; // last known error (if any)
+  selectedId?: string;
+  loaded: boolean;
+  error?: string | null;
 }
 
 export interface AppStatePartialState {

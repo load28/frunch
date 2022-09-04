@@ -3,7 +3,7 @@ import { AppStateEntity } from './app-state.models';
 
 export const initAppState = createAction('[AppState] Init');
 export const setAppStateId = createAction(
-  '[AppState] Set selected app state id',
+  '[AppState] Set selected id'
 );
 
 export const loadAppStateIdSuccess = createAction(
