@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.appStateFacade.init();
-    this.appStateFacade.setSelectedId();
+    this.appStateFacade.updateSelectedId();
   }
 }

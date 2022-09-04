@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { select, Store, Action } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import * as AppStateActions from './app-state.actions';
 import * as AppStateSelectors from './app-state.selectors';
@@ -14,7 +14,8 @@ export class AppStateFacade {
   allAppState$ = this.store.pipe(select(AppStateSelectors.getAllAppState));
   selectedAppState$ = this.store.pipe(select(AppStateSelectors.getSelected));
 
-  constructor(private readonly store: Store) {}
+  constructor(private readonly store: Store) {
+  }
 
   /**
    * Use the initialization action to perform one
@@ -24,7 +25,10 @@ export class AppStateFacade {
     this.store.dispatch(AppStateActions.initAppState());
   }
 
-  setSelectedId() {
+  /**
+   * 선택된 AppState id 업데이트
+   */
+  updateSelectedId() {
     this.store.dispatch(AppStateActions.setAppStateId());
   }
 }

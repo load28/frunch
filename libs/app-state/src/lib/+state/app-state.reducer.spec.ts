@@ -2,23 +2,19 @@ import { Action } from '@ngrx/store';
 
 import * as AppStateActions from './app-state.actions';
 import { AppStateEntity } from './app-state.models';
-import {
-  AppStateState,
-  initialAppStateState,
-  appStateReducer,
-} from './app-state.reducer';
+import { appStateReducer, AppStateState, initialAppStateState } from './app-state.reducer';
 
 describe('AppState Reducer', () => {
   const createAppStateEntity = (id: string, name = ''): AppStateEntity => ({
-    appId: id,
-    name: name || `name-${id}`,
+    id: id,
+    name: name || `name-${id}`
   });
 
   describe('valid AppState actions', () => {
     it('loadAppStateSuccess should return the list of known AppState', () => {
       const appState = [
         createAppStateEntity('PRODUCT-AAA'),
-        createAppStateEntity('PRODUCT-zzz'),
+        createAppStateEntity('PRODUCT-zzz')
       ];
       const action = AppStateActions.loadAppStateSuccess({ appState });
 

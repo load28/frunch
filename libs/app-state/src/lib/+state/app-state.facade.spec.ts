@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule, Store } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 import { NxModule } from '@nrwl/angular';
 import { readFirst } from '@nrwl/angular/testing';
 
@@ -9,13 +9,7 @@ import * as AppStateActions from './app-state.actions';
 import { AppStateEffects } from './app-state.effects';
 import { AppStateFacade } from './app-state.facade';
 import { AppStateEntity } from './app-state.models';
-import {
-  APP_STATE_FEATURE_KEY,
-  AppStateState,
-  initialAppStateState,
-  appStateReducer,
-} from './app-state.reducer';
-import * as AppStateSelectors from './app-state.selectors';
+import { APP_STATE_FEATURE_KEY, appStateReducer, AppStateState } from './app-state.reducer';
 
 interface TestSchema {
   appState: AppStateState;
@@ -25,8 +19,8 @@ describe('AppStateFacade', () => {
   let facade: AppStateFacade;
   let store: Store<TestSchema>;
   const createAppStateEntity = (id: string, name = ''): AppStateEntity => ({
-    appId: id,
-    name: name || `name-${id}`,
+    id: id,
+    name: name || `name-${id}`
   });
 
   describe('used in NgModule', () => {
@@ -34,21 +28,24 @@ describe('AppStateFacade', () => {
       @NgModule({
         imports: [
           StoreModule.forFeature(APP_STATE_FEATURE_KEY, appStateReducer),
-          EffectsModule.forFeature([AppStateEffects]),
+          EffectsModule.forFeature([AppStateEffects])
         ],
-        providers: [AppStateFacade],
+        providers: [AppStateFacade]
       })
-      class CustomFeatureModule {}
+      class CustomFeatureModule {
+      }
 
       @NgModule({
         imports: [
           NxModule.forRoot(),
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
-          CustomFeatureModule,
-        ],
+          CustomFeatureModule
+        ]
       })
-      class RootModule {}
+      class RootModule {
+      }
+
       TestBed.configureTestingModule({ imports: [RootModule] });
 
       store = TestBed.inject(Store);
@@ -86,7 +83,7 @@ describe('AppStateFacade', () => {
 
       store.dispatch(
         AppStateActions.loadAppStateSuccess({
-          appState: [createAppStateEntity('AAA'), createAppStateEntity('BBB')],
+          appState: [createAppStateEntity('AAA'), createAppStateEntity('BBB')]
         })
       );
 

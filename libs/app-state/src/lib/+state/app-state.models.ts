@@ -11,7 +11,7 @@ export interface User {
  * Interface for the 'AppState' data
  */
 export interface AppStateEntity {
-  appId: string;
+  id: string;
   user: User;
   platform: string;
 }

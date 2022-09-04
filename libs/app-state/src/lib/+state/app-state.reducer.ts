@@ -17,7 +17,7 @@ export interface AppStatePartialState {
 }
 
 export const appStateAdapter: EntityAdapter<AppStateEntity> =
-  createEntityAdapter<AppStateEntity>({ selectId: (entity: AppStateEntity) => entity.appId });
+  createEntityAdapter<AppStateEntity>({ selectId: (entity: AppStateEntity) => entity.id });
 
 export const initialAppStateState: AppStateState =
   appStateAdapter.getInitialState({

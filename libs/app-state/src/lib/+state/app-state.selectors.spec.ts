@@ -1,18 +1,14 @@
 import { AppStateEntity } from './app-state.models';
-import {
-  appStateAdapter,
-  AppStatePartialState,
-  initialAppStateState,
-} from './app-state.reducer';
+import { appStateAdapter, AppStatePartialState, initialAppStateState } from './app-state.reducer';
 import * as AppStateSelectors from './app-state.selectors';
 
 describe('AppState Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getAppStateId = (it: AppStateEntity) => it.appId;
+  const getAppStateId = (it: AppStateEntity) => it.id;
   const createAppStateEntity = (id: string, name = '') =>
     ({
-      appId: id,
-      name: name || `name-${id}`,
+      id: id,
+      name: name || `name-${id}`
     } as AppStateEntity);
 
   let state: AppStatePartialState;
@@ -23,15 +19,15 @@ describe('AppState Selectors', () => {
         [
           createAppStateEntity('PRODUCT-AAA'),
           createAppStateEntity('PRODUCT-BBB'),
-          createAppStateEntity('PRODUCT-CCC'),
+          createAppStateEntity('PRODUCT-CCC')
         ],
         {
           ...initialAppStateState,
           selectedId: 'PRODUCT-BBB',
           error: ERROR_MSG,
-          loaded: true,
+          loaded: true
         }
-      ),
+      )
     };
   });
 

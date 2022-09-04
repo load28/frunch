@@ -12,7 +12,7 @@ export class AppStateEffects {
       fetch({
         run: () => {
           const appState = [{
-            appId: 'test',
+            id: 'test',
             platform: 'browser',
             user: { id: 'seo', name: 'min', email: 'tjalsdud89@email.com' }
           }];
@@ -31,11 +31,11 @@ export class AppStateEffects {
       fetch({
         run: () => {
           const appState = [{
-            appId: 'test',
+            id: 'test',
             platform: 'browser',
             user: { id: 'seo', name: 'min', email: 'tjalsdud89@email.com' }
           }];
-          return AppStateActions.loadAppStateIdSuccess({ id: appState[0].appId });
+          return AppStateActions.loadAppStateIdSuccess({ id: appState[0].id });
         },
         onError(action, error) {
           return AppStateActions.loadAppStateFailure({ error });
