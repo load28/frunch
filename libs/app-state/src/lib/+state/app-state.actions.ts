@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { AppStateEntity } from './app-state.models';
+import { IAppStateEntity } from './app-state.models';
 
 export const initAppState = createAction('[AppState] Init');
 export const setAppStateId = createAction(
@@ -18,7 +18,7 @@ export const loadAppStateIdFailure = createAction(
 
 export const loadAppStateSuccess = createAction(
   '[AppState/API] Load AppState Success',
-  props<{ appState: AppStateEntity[] }>()
+  props<{ appState: IAppStateEntity[] }>()
 );
 
 export const loadAppStateFailure = createAction(

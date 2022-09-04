@@ -2,11 +2,11 @@ import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 
 import * as AppStateActions from './app-state.actions';
-import { AppStateEntity } from './app-state.models';
+import { IAppStateEntity } from './app-state.models';
 
 export const APP_STATE_FEATURE_KEY = 'app-state';
 
-export interface AppStateState extends EntityState<AppStateEntity> {
+export interface AppStateState extends EntityState<IAppStateEntity> {
   selectedId?: string;
   loaded: boolean;
   error?: string | null;
@@ -16,8 +16,8 @@ export interface AppStatePartialState {
   readonly [APP_STATE_FEATURE_KEY]: AppStateState;
 }
 
-export const appStateAdapter: EntityAdapter<AppStateEntity> =
-  createEntityAdapter<AppStateEntity>({ selectId: (entity: AppStateEntity) => entity.id });
+export const appStateAdapter: EntityAdapter<IAppStateEntity> =
+  createEntityAdapter<IAppStateEntity>({ selectId: (entity: IAppStateEntity) => entity.id });
 
 export const initialAppStateState: AppStateState =
   appStateAdapter.getInitialState({

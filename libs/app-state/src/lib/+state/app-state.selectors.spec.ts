@@ -1,15 +1,15 @@
-import { AppStateEntity } from './app-state.models';
+import { IAppStateEntity } from './app-state.models';
 import { appStateAdapter, AppStatePartialState, initialAppStateState } from './app-state.reducer';
 import * as AppStateSelectors from './app-state.selectors';
 
 describe('AppState Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getAppStateId = (it: AppStateEntity) => it.id;
+  const getAppStateId = (it: IAppStateEntity) => it.id;
   const createAppStateEntity = (id: string, name = '') =>
     ({
       id: id,
       name: name || `name-${id}`
-    } as AppStateEntity);
+    } as IAppStateEntity);
 
   let state: AppStatePartialState;
 
@@ -41,7 +41,7 @@ describe('AppState Selectors', () => {
     });
 
     it('getSelected() should return the selected Entity', () => {
-      const result = AppStateSelectors.getSelected(state) as AppStateEntity;
+      const result = AppStateSelectors.getSelected(state) as IAppStateEntity;
       const selId = getAppStateId(result);
 
       expect(selId).toBe('PRODUCT-BBB');

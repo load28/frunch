@@ -8,7 +8,7 @@ import { readFirst } from '@nrwl/angular/testing';
 import * as AppStateActions from './app-state.actions';
 import { AppStateEffects } from './app-state.effects';
 import { AppStateFacade } from './app-state.facade';
-import { AppStateEntity } from './app-state.models';
+import { IAppStateEntity } from './app-state.models';
 import { APP_STATE_FEATURE_KEY, appStateReducer, AppStateState } from './app-state.reducer';
 
 interface TestSchema {
@@ -18,7 +18,7 @@ interface TestSchema {
 describe('AppStateFacade', () => {
   let facade: AppStateFacade;
   let store: Store<TestSchema>;
-  const createAppStateEntity = (id: string, name = ''): AppStateEntity => ({
+  const createAppStateEntity = (id: string, name = ''): IAppStateEntity => ({
     id: id,
     name: name || `name-${id}`
   });

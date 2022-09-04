@@ -1,11 +1,11 @@
 import { Action } from '@ngrx/store';
 
 import * as AppStateActions from './app-state.actions';
-import { AppStateEntity } from './app-state.models';
+import { IAppStateEntity } from './app-state.models';
 import { appStateReducer, AppStateState, initialAppStateState } from './app-state.reducer';
 
 describe('AppState Reducer', () => {
-  const createAppStateEntity = (id: string, name = ''): AppStateEntity => ({
+  const createAppStateEntity = (id: string, name = ''): IAppStateEntity => ({
     id: id,
     name: name || `name-${id}`
   });

@@ -6,6 +6,8 @@ import * as AppStateSelectors from './lib/+state/app-state.selectors';
 
 export * from './lib/+state/app-state.facade';
 
+export * from './lib/services/app-state-impl.service';
+
 export * from './lib/+state/app-state.models';
 
 export { AppStateActions, AppStateFeature, AppStateSelectors };

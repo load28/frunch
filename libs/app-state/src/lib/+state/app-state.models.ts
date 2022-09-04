@@ -1,7 +1,7 @@
 /**
  * Interface for the 'user' data
  */
-export interface User {
+export interface IUser {
   id: string;
   name: string;
   email: string;
@@ -10,8 +10,9 @@ export interface User {
 /**
  * Interface for the 'AppState' data
  */
-export interface AppStateEntity {
+export interface IAppStateEntity {
   id: string;
-  user: User;
+  user: IUser;
   platform: string;
 }
+
