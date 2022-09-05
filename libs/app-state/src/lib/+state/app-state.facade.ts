@@ -4,6 +4,9 @@ import { select, Store } from '@ngrx/store';
 import * as AppStateActions from './app-state.actions';
 import * as AppStateSelectors from './app-state.selectors';
 
+/**
+ * App state를 제어하는 함수 구현체를 담은 서비스
+ */
 @Injectable()
 export class AppStateFacade {
   /**

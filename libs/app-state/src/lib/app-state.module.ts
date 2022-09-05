@@ -5,7 +5,6 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromAppState from './+state/app-state.reducer';
 import { AppStateEffects } from './+state/app-state.effects';
 import { AppStateFacade } from './+state/app-state.facade';
-import { AppStateImplService } from './services/app-state-impl.service';
 
 @NgModule({
   imports: [
@@ -16,8 +15,7 @@ import { AppStateImplService } from './services/app-state-impl.service';
     ),
     EffectsModule.forFeature([AppStateEffects])
   ],
-  providers: [AppStateFacade, AppStateImplService],
-  exports: [AppStateImplService]
+  providers: [AppStateFacade]
 })
 export class AppStateModule {
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppStateFacade } from '@frunch/app-state';
+import { AppStateService } from './app-core/services/app-state.service';
 
 @Component({
   selector: 'frunch-root',
@@ -7,14 +7,13 @@ import { AppStateFacade } from '@frunch/app-state';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  appState$ = this.appStateFacade.selectedAppState$;
+  appState$ = this.appStateService.selectedAppState$;
 
-  // global state
-  constructor(private readonly appStateFacade: AppStateFacade) {
+  constructor(private readonly appStateService: AppStateService) {
   }
 
   ngOnInit() {
-    this.appStateFacade.init();
-    this.appStateFacade.updateSelectedId();
+    this.appStateService.initState();
+    this.appStateService.updateId();
   }
 }
