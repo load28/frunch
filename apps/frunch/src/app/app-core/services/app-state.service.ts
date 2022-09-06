@@ -1,27 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppStateImplService } from './app-state-impl.service';
-import { Observable } from 'rxjs';
-import { IAppStateEntity } from '@frunch/app-state';
-
-/**
- * Interface for the 'AppStateService'
- */
-export interface IAppStateService {
-  /**
-   * 선택된 app state
-   */
-  selectedAppState$: Observable<IAppStateEntity | unknown>;
-
-  /**
-   * 모든 app state 초기화
-   */
-  initState(): void;
-
-  /**
-   * 선택 할 app state id 업데이트
-   */
-  updateId(id: string): void;
-}
+import { AppStateImplService, IAppStateService } from '@frunch/app-state';
 
 
 /**
