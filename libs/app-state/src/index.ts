@@ -8,8 +8,6 @@ export { AppStateActions, AppStateFeature, AppStateSelectors };
 
 export * from './lib/+state/app-state.facade';
 
-export * from './lib/services/app-state-impl.service';
-
 export * from './lib/+state/app-state.models';
 
 export * from './lib/app-state.module';
