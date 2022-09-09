@@ -29,16 +29,16 @@ export interface IAppStateService {
  */
 @Injectable()
 export class AppStateService implements IAppStateService {
-  selectedAppState$ = this.appStateImplService.selectedAppState$;
+  public selectedAppState$ = this.appStateImplService.selectedAppState$;
 
   constructor(private readonly appStateImplService: AppStateImplService) {
   }
 
-  initState(): void {
+  public initState(): void {
     this.appStateImplService.initState();
   }
 
-  updateId(): void {
+  public updateId(): void {
     this.appStateImplService.updateId();
   }
 }

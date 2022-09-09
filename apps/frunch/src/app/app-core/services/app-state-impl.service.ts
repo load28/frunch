@@ -7,16 +7,17 @@ import { IAppStateService } from './app-state.service';
  */
 @Injectable()
 export class AppStateImplService implements IAppStateService {
-  selectedAppState$ = this.appStateFacade.selectedAppState$;
+  public selectedAppState$ = this.appStateFacade.selectedAppState$;
 
   constructor(private readonly appStateFacade: AppStateFacade) {
   }
 
-  initState(): void {
+  public initState(): void {
     this.appStateFacade.init();
   }
 
-  updateId(): void {
+  public updateId(): void {
     this.appStateFacade.updateSelectedId();
   }
 }
+

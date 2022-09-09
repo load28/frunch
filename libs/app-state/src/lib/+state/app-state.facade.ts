@@ -12,9 +12,9 @@ export class AppStateFacade {
   /**
    * App state 셀렉터
    */
-  loaded$ = this.store.pipe(select(AppStateSelectors.getAppStateLoaded));
-  allAppState$ = this.store.pipe(select(AppStateSelectors.getAllAppState));
-  selectedAppState$ = this.store.pipe(select(AppStateSelectors.getSelected));
+  public loaded$ = this.store.pipe(select(AppStateSelectors.getAppStateLoaded));
+  public allAppState$ = this.store.pipe(select(AppStateSelectors.getAllAppState));
+  public selectedAppState$ = this.store.pipe(select(AppStateSelectors.getSelected));
 
   constructor(private readonly store: Store) {
   }
@@ -22,14 +22,14 @@ export class AppStateFacade {
   /**
    * AppState 초기화 액션
    */
-  init() {
+  public init(): void {
     this.store.dispatch(AppStateActions.initAppState());
   }
 
   /**
    * 선택된 AppState id 업데이트
    */
-  updateSelectedId() {
+  public updateSelectedId(): void {
     this.store.dispatch(AppStateActions.setAppStateId());
   }
 }
